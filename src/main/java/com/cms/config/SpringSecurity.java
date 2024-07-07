@@ -51,7 +51,7 @@ public class SpringSecurity {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests().
-                 requestMatchers("/cms/**")
+                 requestMatchers("/user/**")
                 .authenticated().requestMatchers("/post/**").
                  authenticated().requestMatchers("/comment/**").
                 authenticated().requestMatchers("/like/**").

@@ -1,7 +1,7 @@
 package com.cms.controller;
 
 import com.cms.Dto.UserDto;
-import com.cms.entity.Post;
+
 import com.cms.entity.User;
 import com.cms.entity.UserProfile;
 import com.cms.repository.CustomerRepo;
@@ -12,10 +12,8 @@ import com.cms.services.UserProfileServices;
 import com.cms.services.UserServices;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +26,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/cms")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -48,7 +46,7 @@ public class UserController {
 
 
     //user forget password and username
-    @PutMapping("/user/update")
+    @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody UserDto userDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
