@@ -11,4 +11,4 @@ COPY target/hook4startup-backend-java.jar /app/
 EXPOSE 8080
 
 # Command to run the application
-CMD ["java", "-jar", "/app/hook4startup-backend-java.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "/app/hook4startup-backend-java.jar", "--spring.profiles.active=dev"]
