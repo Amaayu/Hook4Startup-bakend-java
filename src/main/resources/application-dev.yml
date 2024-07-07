@@ -1,19 +1,19 @@
 server:
-    port: ${portnumber}
+  port: ${portnumber}
+
 spring:
-   data:
+  data:
     mongodb:
       uri: mongodb+srv://${username}:${password}@${dataname}.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=${dataname}
       database: ${dataname}
-
       auto-index-creation: true
 
 application:
-     name: ${nameofStartup}
+  name: ${nameofStartup}
+  logging:
+    level:
+      root: INFO
 
-     logging:
-       level:
-         root: INFO
 
 
 
