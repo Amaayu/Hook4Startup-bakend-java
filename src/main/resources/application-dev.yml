@@ -3,7 +3,7 @@
 spring:
   data:
     mongodb:
-      uri:
+      uri: mongodb+srv://namdevaniket446:TOd09Wqu32PHamYn@cms.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=cms
       database: cms
       auto-index-creation: true
 
