@@ -28,7 +28,7 @@ public class Post {
     private String postId;
 
     @DBRef
-    @JsonManagedReference
+   // @JsonManagedReference
     private User userId;
 
 

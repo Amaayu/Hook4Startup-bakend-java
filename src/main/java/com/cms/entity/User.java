@@ -30,8 +30,7 @@ public class User {
     private String username;
     @NonNull
     private String password;
-
-   @DBRef
+    @DBRef
     private UserProfile userProfileId;
 
     @CreatedDate
@@ -40,7 +39,7 @@ public class User {
     @LastModifiedDate
     private Date lastModifiedDate;
 
-   @DBRef
+    @DBRef
     private List<Post> posts = new ArrayList<>();
     // "ROLE_USER,ROLE_ADMIN"
     private String roles = "User_Role";

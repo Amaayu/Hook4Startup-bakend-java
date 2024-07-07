@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+
 
 @RestController
 @CrossOrigin("*")
@@ -74,15 +77,25 @@ public class UserController {
 
     // get all users
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<UserDto>> getAllUsers() {
         try {
             List<User> users = userServices.findAllCustomer();
-            System.out.println(users);
-            return new ResponseEntity<>(users, HttpStatus.OK);
+            List<UserDto> userDtoList = users.stream().map(user -> {
+                return new UserDto(
+                        user.getId(),
+                        user.getUsername(),
+                        user.getPassword()
+
+                );
+            }).collect(Collectors.toList());
+
+            return new ResponseEntity<>(userDtoList, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 
 
     // Create user profile
