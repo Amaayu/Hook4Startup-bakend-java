@@ -32,5 +32,3 @@ Thumbs.db
 /.project
 .classpath
 .settings/
-/application-prod.yml
-/application-qa.yml
