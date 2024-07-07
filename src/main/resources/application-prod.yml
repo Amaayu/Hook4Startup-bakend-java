@@ -1,0 +1,17 @@
+  server:
+    port: 8080
+
+    spring:
+      data:
+        mongodb:
+          uri:  mongodb+srv://namdevaniket446:TOd09Wqu32PHamYn@cms.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=cms
+          database: cms
+          auto-index-creation: true
+
+          spring:
+            application:
+              name: cms
+
+              logging:
+                level:
+                 root: INFO
