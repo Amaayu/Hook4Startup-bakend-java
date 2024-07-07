@@ -1,9 +1,8 @@
-
-      auto-index-creation: true
-
   application:
     name: hook4startup
 
-logging:
-  level:
-    root: INFO
+    auto-index-creation: true
+
+  logging:
+      level:
+        root: INFO
