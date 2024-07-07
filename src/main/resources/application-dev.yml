@@ -1,6 +1,9 @@
- auto-index-creation: true
+server:
+  port: 8080
 
- application:
+  auto-index-creation: true
+
+  application:
     name: hook4startup
 
     logging:
