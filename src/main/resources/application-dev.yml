@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://namdevaniket446:TOd09Wqu32PHamYn@cms.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=cms
+      uri: `mongodb+srv://${username}:${password}@${dataname}.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=${dataname}`
       database: cms
       auto-index-creation: true
 
@@ -11,3 +11,7 @@ spring:
 logging:
   level:
     root: INFO
+
+
+
+    #mongodb+srv://namdevaniket446:TOd09Wqu32PHamYn@cms.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=cms
