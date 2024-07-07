@@ -24,13 +24,14 @@ import java.util.Objects;
 
 public class User {
     @Id
-    private String Id;
+    private String id;
    // @Indexed(unique = true)
     @NonNull
     private String username;
     @NonNull
     private String password;
-    @DBRef
+
+   @DBRef
     private UserProfile userProfileId;
 
     @CreatedDate
@@ -39,7 +40,7 @@ public class User {
     @LastModifiedDate
     private Date lastModifiedDate;
 
-    @DBRef
+   @DBRef
     private List<Post> posts = new ArrayList<>();
     // "ROLE_USER,ROLE_ADMIN"
     private String roles = "User_Role";
@@ -51,18 +52,18 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(Id, user.Id); // Use unique identifier
+        return Objects.equals(id, user.id); // Use unique identifier
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id); // Use unique identifier
+        return Objects.hash(id); // Use unique identifier
     }
 
 
     @Override
     public String toString() {
-        return "User{" + "id=" + Id + ", username='" + username + '\'' + '}';
+        return "User{" + "id=" + id + ", username='" + username + '\'' + '}';
     }
 
 }

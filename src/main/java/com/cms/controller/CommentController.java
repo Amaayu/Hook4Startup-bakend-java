@@ -16,7 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -57,7 +56,6 @@ public class CommentController {
                 return new ResponseEntity<>("Post not found", HttpStatus.BAD_REQUEST);
             }
             newComment.setCommentId(new ObjectId().toString());
-            newComment.setCreationDate(new Date());
             newComment.setPostId(comment.getPostId());
             newComment.setContent(comment.getContent());
             newComment.setUserId(user);
