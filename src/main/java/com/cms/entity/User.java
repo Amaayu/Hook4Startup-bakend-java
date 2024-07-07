@@ -24,7 +24,7 @@ import java.util.Objects;
 
 public class User {
     @Id
-    private String id;
+    private String Id;
    // @Indexed(unique = true)
     @NonNull
     private String username;
@@ -51,18 +51,18 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id); // Use unique identifier
+        return Objects.equals(Id, user.Id); // Use unique identifier
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id); // Use unique identifier
+        return Objects.hash(Id); // Use unique identifier
     }
 
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username='" + username + '\'' + '}';
+        return "User{" + "id=" + Id + ", username='" + username + '\'' + '}';
     }
 
 }
