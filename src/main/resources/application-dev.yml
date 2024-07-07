@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: `mongodb+srv://${username}:${password}@${dataname}.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=${dataname}`
+      uri: mongodb+srv://${username}:${password}@${dataname}.dtgydnp.mongodb.net/?retryWrites=true&w=majority&appName=${dataname}
       database: cms
       auto-index-creation: true
 
