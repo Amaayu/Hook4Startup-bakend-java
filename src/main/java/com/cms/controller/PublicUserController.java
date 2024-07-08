@@ -4,6 +4,7 @@ import com.cms.Dto.LoginDto;
 import com.cms.Dto.UserDto;
 import com.cms.entity.User;
 import com.cms.services.UserServices;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,7 @@ public class PublicUserController {
     @PostMapping("/create")
     public ResponseEntity<?> createEntry(@RequestBody UserDto userDto) {
         try {
+            user.setId(new ObjectId().toString());
             user.setUsername(userDto.getUsername());
             user.setPassword(userDto.getPassword());
             userServices.customerSave( user);
