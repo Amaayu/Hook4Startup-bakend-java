@@ -11,8 +11,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 @NoArgsConstructor
 @Data
 public class CommentDto {
-    @DBRef
-    private Post postId;
+
+    private String postId;
     private  String  content;
 
 }

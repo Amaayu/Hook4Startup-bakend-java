@@ -3,6 +3,7 @@ package com.cms.controller;
 import com.cms.Dto.LoginDto;
 import com.cms.Dto.UserDto;
 import com.cms.entity.User;
+import com.cms.repository.CustomerRepo;
 import com.cms.services.UserServices;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @CrossOrigin("*")
 @RequestMapping("/")
@@ -19,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 public class PublicUserController {
     @Autowired
     public User user;
+    @Autowired
+    CustomerRepo customerRepo;
 
     @Autowired
     public PasswordEncoder passwordEncoder;
@@ -45,6 +50,10 @@ public class PublicUserController {
     @PostMapping("/create")
     public ResponseEntity<?> createEntry(@RequestBody UserDto userDto) {
         try {
+            Optional<User> byUsername = Optional.ofNullable(customerRepo.findByUsername(userDto.getUsername()));
+            if (byUsername.isPresent()){
+                return new ResponseEntity<>("User is already exit",HttpStatus.BAD_REQUEST);
+            }
             user.setId(new ObjectId().toString());
             user.setUsername(userDto.getUsername());
             user.setPassword(userDto.getPassword());

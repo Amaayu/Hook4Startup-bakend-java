@@ -51,12 +51,12 @@ public class CommentController {
                 return new ResponseEntity<>("UserProfile not found plz make", HttpStatus.BAD_REQUEST);
             }
 
-            Optional<Post> byId = postRepo.findById(comment.getPostId().getPostId());
+            Optional<Post> byId = postRepo.findById(comment.getPostId());
             if (!byId.isPresent()) {
                 return new ResponseEntity<>("Post not found", HttpStatus.BAD_REQUEST);
             }
             newComment.setCommentId(new ObjectId().toString());
-            newComment.setPostId(comment.getPostId());
+            newComment.setPostId(byId.get());
             newComment.setContent(comment.getContent());
             newComment.setUserId(user);
             commentRepo.save(newComment);
